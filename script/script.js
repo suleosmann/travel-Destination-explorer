@@ -19,6 +19,19 @@ searchBtn.addEventListener('click', function() {
         alert('Please enter a country name.');
     }
 });
+// Event Listener for pressing Enter key in the search input
+searchInput.addEventListener('keyup', function(event) {
+    if (event.key === 'Enter') {
+        const countryName = searchInput.value.trim(); // Get input value
+
+        if (countryName) {
+            fetchCountryData(countryName); // Fetch data for the entered country
+        } else {
+            alert('Please enter a country name.');
+        }
+    }
+});
+
 
 // Function to fetch country data
 function fetchCountryData(countryName) {
