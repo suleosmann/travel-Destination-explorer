@@ -89,9 +89,7 @@ searchInput.addEventListener('keyup', function(event) {
 });
 const formElement = document.querySelector('form');  // Adjust the selector if needed
 
-formElement.addEventListener('submit', function(event) {
-    event.preventDefault();
-});
+
 
 // Event Listener for Sort Filter
 sortFilter.addEventListener('change', function() {
