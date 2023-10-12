@@ -76,7 +76,22 @@ favoriteBtn.addEventListener('click', function() {
         alert('Please search for a valid country before favoriting.');
     }
 });
+//making enter through keyboard to work
+searchInput.addEventListener('keyup', function(event) {
+    if (event.key === 'Enter') {
+        const countryName = searchInput.value.trim();
+        if (countryName) {
+            fetchCountryData(countryName);
+        } else {
+            alert('Please enter a country name.');
+        }
+    }
+});
+const formElement = document.querySelector('form');  // Adjust the selector if needed
 
+formElement.addEventListener('submit', function(event) {
+    event.preventDefault();
+});
 
 // Event Listener for Sort Filter
 sortFilter.addEventListener('change', function() {
