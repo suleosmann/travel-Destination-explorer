@@ -8,6 +8,12 @@ const currencyElem = document.getElementById('currency');
 const languageElem = document.getElementById('language');
 const descriptionElem = document.querySelector('.description');
 const favoriteBtn = document.querySelector('.favorite-btn');
+const sortFilter = document.getElementById('sort-filter');
+const countriesListElem = document.querySelector('.countries-list');
+const viewFavoritesBtn = document.getElementById('view-favorites-btn');
+const favoritesSection = document.getElementById('favorites-section');
+const favoritesListElem = document.getElementById('favorites-list');
+
 
 // Event Listener for Search Button
 searchBtn.addEventListener('click', function() {
@@ -19,19 +25,6 @@ searchBtn.addEventListener('click', function() {
         alert('Please enter a country name.');
     }
 });
-// Event Listener for pressing Enter key in the search input
-searchInput.addEventListener('keyup', function(event) {
-    if (event.key === 'Enter') {
-        const countryName = searchInput.value.trim(); // Get input value
-
-        if (countryName) {
-            fetchCountryData(countryName); // Fetch data for the entered country
-        } else {
-            alert('Please enter a country name.');
-        }
-    }
-});
-
 
 // Function to fetch country data
 function fetchCountryData(countryName) {
@@ -51,7 +44,7 @@ function fetchCountryData(countryName) {
         })
         .catch(error => {
             console.error("Error fetching country data:", error);
-            alert('Failed to fetch country data. Please try again.');
+            alert('Failed to fetch country data. Please try again or check the country name.');
         });
 }
 
@@ -67,6 +60,85 @@ function updateUI(country) {
 
 // Event Listener for Favorite Button
 favoriteBtn.addEventListener('click', function() {
-    // Logic for favoriting a country (e.g., save to local storage, change button color, etc.)
-    alert('Country favorited! (Note: Implement actual favoriting logic here)');
+    const currentCountry = countryNameElem.textContent;
+    
+    // Check if a valid country is displayed
+    if(currentCountry && currentCountry !== "Country/City Name") {
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        if (!favorites.includes(currentCountry)) {
+            favorites.push(currentCountry);
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+            alert('Country favorited!');
+        } else {
+            alert('Country already in favorites!');
+        }
+    } else {
+        alert('Please search for a valid country before favoriting.');
+    }
 });
+
+
+// Event Listener for Sort Filter
+sortFilter.addEventListener('change', function() {
+    const sortBy = sortFilter.value;
+    if (sortBy === 'population') {
+        fetchCountriesList('Asia'); // Fetching countries from Asia as an example
+    }
+});
+
+// Fetch a list of countries (for demonstration, let's assume the API provides a list when given a continent like 'Asia')
+function fetchCountriesList(continent) {
+    const apiUrl = `https://restcountries.com/v3.1/region/${continent}?fields=name,population`;
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            data.sort((a, b) => b.population - a.population); // Sort by population
+            displayCountriesList(data);
+        })
+        .catch(error => {
+            console.error("Error fetching countries list:", error);
+        });
+}
+
+// Display the list of countries
+function displayCountriesList(countriesData) {
+    countriesListElem.innerHTML = ''; // Clear any existing countries
+
+    countriesData.forEach(country => {
+        const countryElem = document.createElement('article');
+        countryElem.innerHTML = `
+            <h3>${country.name.common}</h3>
+            <p>Population: ${country.population}</p>
+        `;
+        countriesListElem.appendChild(countryElem);
+    });
+}
+// Event Listener for "View Favorites" Button
+viewFavoritesBtn.addEventListener('click', function() {
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    displayFavorites(favorites);
+});
+
+// Function to display the favorited countries
+function displayFavorites(favorites) {
+    favoritesListElem.innerHTML = ''; // Clear any existing favorites
+
+    if (favorites.length === 0) {
+        favoritesListElem.innerHTML = '<li>No favorited countries yet.</li>';
+    } else {
+        favorites.forEach(countryName => {
+            const li = document.createElement('li');
+            li.textContent = countryName;
+            favoritesListElem.appendChild(li);
+        });
+    }
+
+    // Toggle the display of the favorites section
+    if (favoritesSection.style.display === 'none') {
+        favoritesSection.style.display = 'block';
+    } else {
+        favoritesSection.style.display = 'none';
+    }
+}
+
