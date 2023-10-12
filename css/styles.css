@@ -177,6 +177,29 @@ span {
     background-color: #FFFFFF;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+.about-section {
+    
+    padding: 50px 0;  /* Vertical padding */
+    text-align: center;  /* Centered text */
+}
+
+.about-content {
+    max-width: 800px;  /* Limit the width for readability */
+    margin: 0 auto;  /* Center the content horizontally */
+}
+
+.about-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;  /* Dark gray color */
+}
+
+.about-section p {
+    font-size: 16px;
+    line-height: 1.5;  /* Spacing between lines */
+    color: #666;  /* Medium gray color */
+    margin-bottom: 20px;  /* Space between paragraphs */
+}
 
 .footer {
     background-color: #2C3E50;

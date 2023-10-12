@@ -28,7 +28,7 @@ Click the "Favorite" button to add the country to your favorites list.
 HTML: For structuring the web content.
 CSS: For styling and responsive design.
 JavaScript: For interactivity and fetching data from the RestCountries API.
-
+  
 
 ### License
 This project is licensed under the MIT License. See the LICENSE.md file for details.
