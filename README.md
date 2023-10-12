@@ -4,10 +4,10 @@ NaviNomad Explorer is a web application that allows users to search and discover
 ![screenshot of the site](./images/image.png)
 
 # Features
-Country Search: Quickly find any country by typing its name.  
-Detailed Information: View essential details about each country  including population, currency, and primary languages.  
-Favorites System: Mark countries as favorites for easy access later.  
-Responsive Design: Optimized for both desktop and mobile devices.  
+**Country Search**: Quickly find any country by typing its name.  
+**Detailed Information**: View essential details about each country  **including population, currency, and primary languages.**  
+**Favorites System**: Mark countries as favorites for easy access later.  
+**Responsive Design**: Optimized for both desktop and mobile devices.  
 # Getting Started
 ### Prerequisites
 A modern web browser (e.g., Chrome, Firefox, Safari, Edge).
