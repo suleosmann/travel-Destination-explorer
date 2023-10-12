@@ -2,6 +2,7 @@
 NaviNomad Explorer is a web application that allows users to search and discover information about countries from around the world. With a simple and intuitive interface, users can quickly find details such as population, currency, languages, and more. Additionally, users can mark their favorite countries for easy access in the future.
 
 ![screenshot of the site](./images/image.png)
+**Check Out the Site:** https://travel-destination-explorer.vercel.app/
 
 # Features
 **Country Search**: Quickly find any country by typing its name.  
