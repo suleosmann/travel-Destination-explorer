@@ -17,7 +17,7 @@ Clone the repository:
 git clone https://github.com/suleosmann/travel-Destination-explorer.git
 Navigate to the project directory:
 
-cd country-explorer
+cd travel-Destination-explorer
 Open index.html in your preferred web browser.
 ### Usage
 Enter the name of a country in the search bar.
