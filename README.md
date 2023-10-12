@@ -14,7 +14,7 @@ A modern web browser (e.g., Chrome, Firefox, Safari, Edge).
 ### Installation
 Clone the repository:
 
-git clone git@github.com:suleosmann/travel-Destination-explorer.git
+git clone https://github.com/suleosmann/travel-Destination-explorer.git
 Navigate to the project directory:
 
 cd country-explorer
