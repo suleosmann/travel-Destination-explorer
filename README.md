@@ -1,4 +1,4 @@
-# NaviNomad Explorer
+# NaviNomad Explorer 🌍
 NaviNomad Explorer is a web application that allows users to search and discover information about countries from around the world. With a simple and intuitive interface, users can quickly find details such as population, currency, languages, and more. Additionally, users can mark their favorite countries for easy access in the future.
 
 ![screenshot of the site](./images/image.png)
