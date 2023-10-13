@@ -154,4 +154,4 @@ function displayFavorites(favorites) {
         favoritesSection.style.display = 'none';
     }
 }
-
+    

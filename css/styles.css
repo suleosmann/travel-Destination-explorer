@@ -230,6 +230,7 @@ span {
     color: #F39C12;
 }
 
+
 /* Mobile styles */
 @media (max-width: 768px) {
     .navbar {
